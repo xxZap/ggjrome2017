@@ -11,7 +11,7 @@ public class FollowerBehaviour : MonoBehaviour
 
     public WaveType type;
 
-    public MeshRenderer[] meshRenderers;
+    public Renderer[] renderers;
 
     public Material greenMaterial;
     public Material blueMaterial;

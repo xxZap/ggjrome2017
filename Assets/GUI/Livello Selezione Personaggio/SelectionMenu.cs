@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SelectionMenu : MonoBehaviour
 {
@@ -40,6 +41,13 @@ public class SelectionMenu : MonoBehaviour
         {
             startIndications.gameObject.SetActive(false);
         }
+    }
+
+    public void StartBattle()
+    {
+        GameManager.PLAYERS_TO_SPAWN = players;
+        
+        SceneManager.LoadScene("AlessioSceneTest");
     }
 
 

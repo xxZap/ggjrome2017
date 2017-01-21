@@ -12,7 +12,7 @@ public class Spawn_Nemici : MonoBehaviour {
     // Use this for initialization
     void Start () {
         StartCoroutine("Spawner");
-        AverageSpawningInterval_Crystals = 5; //secs > 1
+        AverageSpawningInterval_Crystals = 10; //secs > 1
     }
 	
 	// Update is called once per frame
@@ -32,23 +32,33 @@ public class Spawn_Nemici : MonoBehaviour {
                 Vector3 SpawnLocation = GetRandomSpawnLocation();
                 GameObject NemicoSpawnato = (GameObject)Instantiate(Nemico, SpawnLocation, transform.rotation);
                 FollowerBehaviour untypedEnemy = NemicoSpawnato.GetComponent<FollowerBehaviour>();
-                untypedEnemy.type = (WaveType)Mathf.RoundToInt(Random.Range(0, 2));
-                switch (untypedEnemy.type)
+                untypedEnemy.type = (WaveType)Mathf.RoundToInt(Random.Range(0, 3));
+
+                var mats = NemicoSpawnato.GetComponentInChildren<Renderer>().materials;
+
+                switch(untypedEnemy.type)
                 {
                     case WaveType.Blue:
-                        foreach (MeshRenderer mesh in untypedEnemy.meshRenderers)
-                            mesh.material = untypedEnemy.blueMaterial;
+                        for(int i=0; i<mats.Length; i++)
+                        {
+                            mats[i] = untypedEnemy.blueMaterial;
+                        }
                         break;
                     case WaveType.Green:
-                        foreach (MeshRenderer mesh in untypedEnemy.meshRenderers)
-                            mesh.material = untypedEnemy.greenMaterial;
+                        for(int i=0; i<mats.Length; i++)
+                        {
+                            mats[i] = untypedEnemy.greenMaterial;
+                        }
                         break;
                     case WaveType.Red:
-                        foreach (MeshRenderer mesh in untypedEnemy.meshRenderers)
-                            mesh.material = untypedEnemy.redMaterial;
+                        for(int i=0; i<mats.Length; i++)
+                        {
+                            mats[i] = untypedEnemy.redMaterial;
+                        }
                         break;
                 }
 
+                NemicoSpawnato.GetComponentInChildren<Renderer>().materials = mats;
             }
         } while (true);
 

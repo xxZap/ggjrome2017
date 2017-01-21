@@ -4,5 +4,14 @@ using System.Collections;
 public class Player : MonoBehaviour
 {
     public int id = 1;
+
+    public int points = 0;
+
+    public TextMesh meshPoints;
+
+    void Update()
+    {
+        meshPoints.text = points.ToString();
+    }
 }
 

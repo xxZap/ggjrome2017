@@ -26,7 +26,6 @@ public class WaveAttack : MonoBehaviour
             {
                 Destroy(waveParent, 0.2f);
                 damageable.GetDamage(damage);
-                // TODO: per gli ostacoli, non devono scoppiare all'istante ma avere comportamenti particolari: alcuni esplodere, altri cambiare texture, altri "abbassarsi"
             }
             else if (collider.gameObject.tag == "Player")
             {
@@ -35,6 +34,7 @@ public class WaveAttack : MonoBehaviour
                     return;
 
                 damageable.GetDamage(damage);
+                GameManager.Instance.PlayerKilledPlayer(waveOwner, player.id);
                 Rigidbody rb = player.gameObject.GetComponent<Rigidbody>();
                 Vector3 force = (player.gameObject.transform.position - transform.position).normalized;
                 rb.AddForce(force * 30000f);
