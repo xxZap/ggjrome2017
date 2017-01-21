@@ -24,23 +24,33 @@ public class WaveAttack : MonoBehaviour
         Damageable damageable = collider.gameObject.GetComponent<Damageable>();
         if(damageable != null)
         {
-            if(collider.gameObject.tag == "Obstacle")
+            if (collider.gameObject.tag == "Obstacle")
             {
                 Destroy(waveParent, 0.2f);
                 damageable.GetDamage(damage);
                 // TODO: per gli ostacoli, non devono scoppiare all'istante ma avere comportamenti particolari: alcuni esplodere, altri cambiare texture, altri "abbassarsi"
             }
-            else if(collider.gameObject.tag == "Player")
+            else if (collider.gameObject.tag == "Player")
             {
                 Player player = damageable.gameObject.GetComponent<Player>();
-                if(player == null || player.id == waveOwner)
+                if (player == null || player.id == waveOwner)
                     return;
-                
+
                 damageable.GetDamage(damage);
                 Rigidbody rb = player.gameObject.GetComponent<Rigidbody>();
                 Vector3 force = (player.gameObject.transform.position - transform.position).normalized;
                 rb.AddForce(force * 30000f);
             }
+            else if (collider.gameObject.tag == "Enemy")
+            {
+                FollowerBehaviour enemy = damageable.gameObject.GetComponent<FollowerBehaviour>();
+                //check enemy type = wave type
+                if (enemy == null || enemy.type != this.type)
+                    return;
+
+                damageable.GetDamage(damage);
+            }
+
         }
 
         WaveAttack waveAttack = collider.gameObject.GetComponent<WaveAttack>();

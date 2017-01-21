@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.AI;
 
 public class FollowerBehaviour : MonoBehaviour
 {
 
     public Transform[] players;
-    private float MoveSpeed = 4;
-
+    public float MoveSpeed = 4f;
+    private NavMeshAgent pathfinder;
+    public WaveType type;
 
     void Start()
     {
         players = System.Array.ConvertAll<GameObject, Transform>(GameObject.FindGameObjectsWithTag("Player"), x => x.transform);
+        pathfinder = GetComponent<NavMeshAgent>();
+        pathfinder.speed = MoveSpeed;
     }
 
     void FixedUpdate()
@@ -33,8 +37,9 @@ public class FollowerBehaviour : MonoBehaviour
         //if a closest player was found, go for it!
         if (minDistance < float.MaxValue)
         {
-            transform.LookAt(closestPlayer);
-            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+            //transform.LookAt(closestPlayer);
+            //transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+            pathfinder.SetDestination(closestPlayer.position);
         }
         
     }

@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -90,7 +90,7 @@ NavMeshSettings:
     manualCellSize: 0
     cellSize: 0.16666667
     accuratePlacement: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 83d9a99a33525c24ab1e85b49767881b, type: 2}
 --- !u!1001 &69292120
 Prefab:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4752069623529152, guid: ef04abb49ade44240b745831289cb27f, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114471336130986134, guid: ef04abb49ade44240b745831289cb27f,
         type: 2}
@@ -273,7 +273,7 @@ Transform:
   - {fileID: 207469842}
   - {fileID: 1221489918}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &84895943
 GameObject:
@@ -662,6 +662,19 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: b58166a9d44e96741aa47c086eb08c39, type: 3}
+--- !u!114 &780903511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 780903506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56ad46179c83e9e46b16f6f9a551cbb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Nemico: {fileID: 1133129225770480, guid: f1741ce15a228f94981682bacd0afbde, type: 2}
+  AverageSpawningInterval_Crystals: 0
 --- !u!1001 &875387960
 Prefab:
   m_ObjectHideFlags: 0
