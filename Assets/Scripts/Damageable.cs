@@ -5,11 +5,14 @@ public class Damageable: MonoBehaviour
 {
     public int life = 1;
 
-    public MeshRenderer meshRenderer;
+    public MeshRenderer[] meshRenderer;
 
     void Update()
     {
-        meshRenderer.material.color = Color.Lerp (meshRenderer.material.color, Color.white, Time.deltaTime);
+        for(int i=0; i<meshRenderer.Length; i++)
+        {
+            meshRenderer[i].material.color = Color.Lerp (meshRenderer[i].material.color, Color.white, Time.deltaTime);
+        }
     }
 
     public void GetDamage(int damage)
@@ -21,7 +24,10 @@ public class Damageable: MonoBehaviour
         else
         {
             life -= damage;
-            meshRenderer.material.color = new Color(1,0,0);
+            for(int i=0; i<meshRenderer.Length; i++)
+            {
+                meshRenderer[i].material.color = new Color(1,0,0);
+            }
         }
     }
 

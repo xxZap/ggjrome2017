@@ -28,13 +28,20 @@ public class MovementController : MonoBehaviour
 
     void Update()
     {
-        GetInput();
-        
         Move();
-
+        
         FixMaxSpeed();
 
         FixInertia();
+
+        Turn();
+
+        FixUpRotation();
+    }
+
+    void FixedUpdate()
+    {
+        GetInput();
     }
 
     #region Private functions
@@ -55,6 +62,24 @@ public class MovementController : MonoBehaviour
 
         movementDirection = movementDirection.normalized * speed * Time.deltaTime * diagonalGlitchCorrector;
         rb.AddForce(movementDirection);
+    }
+
+    private void Turn()
+    {
+        Vector3 velocity = rb.velocity;
+        if (velocity != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(velocity, Vector3.up);
+        }
+    }
+
+    private void FixUpRotation()
+    {
+        Quaternion rot = transform.rotation;
+        rot.x = 0f;
+        rot.z = 0f;
+
+        transform.rotation = rot;
     }
 
     private void FixMaxSpeed()

@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 114464521625279372}
   - component: {fileID: 136929651258652778}
   - component: {fileID: 54594570368189276}
-  - component: {fileID: 135831057777437272}
   m_Layer: 8
   m_Name: WaveAttackGreen
   m_TagString: Wave
@@ -193,18 +192,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   meshRenderer: {fileID: 23800183003695212}
---- !u!135 &135831057777437272
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1488409687531582}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3.2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136929651258652778
 CapsuleCollider:
   m_ObjectHideFlags: 1

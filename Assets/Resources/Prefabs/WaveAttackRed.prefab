@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 114383610115564554}
   - component: {fileID: 136813357569643554}
   - component: {fileID: 54144412382487330}
-  - component: {fileID: 135796301627706364}
   m_Layer: 8
   m_Name: WaveAttackRed
   m_TagString: Wave
@@ -193,18 +192,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   meshRenderer: {fileID: 23131132789881846}
---- !u!135 &135796301627706364
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1968538009044212}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3.2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136813357569643554
 CapsuleCollider:
   m_ObjectHideFlags: 1
