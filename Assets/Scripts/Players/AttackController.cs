@@ -62,7 +62,7 @@ public class AttackController : MonoBehaviour
     private void SpawnWave(WaveType type)
     {
         currentCooldown = cooldown;
-        movementController.StopMovement();
+        //movementController.StopMovement();
 
         if(animator != null)
             animator.SetTrigger("attack");
@@ -73,6 +73,7 @@ public class AttackController : MonoBehaviour
         waveAtt = newWave.transform.GetChild(0).GetComponentInChildren<WaveAttack>();
         waveAtt.waveOwner = player.id;
         waveAtt.waveParent = newWave;
+        waveAtt.type = type;
         Destroy(newWave, waveAtt.lifeTime);
 
         switch(type)
