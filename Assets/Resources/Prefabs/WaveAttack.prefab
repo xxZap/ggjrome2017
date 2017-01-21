@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4437956424767432}
   - component: {fileID: 114145221476457848}
   - component: {fileID: 136301491056307166}
-  - component: {fileID: 54955180689012782}
   - component: {fileID: 95959679748465526}
   m_Layer: 8
   m_Name: WaveAttack
@@ -58,6 +57,8 @@ GameObject:
   - component: {fileID: 23850933380636246}
   - component: {fileID: 64102965577971508}
   - component: {fileID: 114340083166724590}
+  - component: {fileID: 54782176869647054}
+  - component: {fileID: 64776354291710562}
   m_Layer: 8
   m_Name: pPipe5
   m_TagString: Untagged
@@ -189,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1678789190149140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.227}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4692265326460306}
@@ -351,12 +352,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1737796449911810}
   m_Mesh: {fileID: 4300002, guid: b2cd14fd888bdd24f912f79334f2c6e2, type: 3}
---- !u!54 &54955180689012782
+--- !u!54 &54782176869647054
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1661819806135662}
+  m_GameObject: {fileID: 1681730806664826}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -365,7 +366,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!64 &64102965577971508
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -374,6 +375,20 @@ MeshCollider:
   m_GameObject: {fileID: 1681730806664826}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: b2cd14fd888bdd24f912f79334f2c6e2, type: 3}
+--- !u!64 &64776354291710562
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1681730806664826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 1
@@ -466,7 +481,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1661819806135662}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 1.2
   m_Height: 1
   m_Direction: 1

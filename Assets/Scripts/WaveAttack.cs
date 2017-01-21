@@ -26,14 +26,14 @@ public class WaveAttack : MonoBehaviour
         {
             if(collider.gameObject.tag == "Obstacle")
             {
-                Destroy(waveParent);
+                Destroy(waveParent, 0.2f);
                 damageable.GetDamage(damage);
                 // TODO: per gli ostacoli, non devono scoppiare all'istante ma avere comportamenti particolari: alcuni esplodere, altri cambiare texture, altri "abbassarsi"
             }
             else if(collider.gameObject.tag == "Player")
             {
                 Player player = damageable.gameObject.GetComponent<Player>();
-                if(player != null && player.id == waveOwner)
+                if(player == null || player.id == waveOwner)
                     return;
                 
                 damageable.GetDamage(damage);
