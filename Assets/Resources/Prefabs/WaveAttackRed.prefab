@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4529081004651132}
   - component: {fileID: 33090038973560848}
   - component: {fileID: 23131132789881846}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pTorus1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,9 +37,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4137854659224788}
   - component: {fileID: 114383610115564554}
-  m_Layer: 0
+  - component: {fileID: 136813357569643554}
+  - component: {fileID: 54144412382487330}
+  - component: {fileID: 135796301627706364}
+  m_Layer: 8
   m_Name: WaveAttackRed
-  m_TagString: Untagged
+  m_TagString: Wave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +69,7 @@ Transform:
   m_GameObject: {fileID: 1019473876181944}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 3, y: 1, z: 3}
   m_Children: []
   m_Father: {fileID: 4137854659224788}
   m_RootOrder: 0
@@ -109,6 +112,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1019473876181944}
   m_Mesh: {fileID: 4300000, guid: cea6f259f2f62174db4a704434b504d1, type: 3}
+--- !u!54 &54144412382487330
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968538009044212}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!114 &114383610115564554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,6 +143,7 @@ MonoBehaviour:
   waveOwner: 0
   lifeTime: 1
   scaleGrowthFactor: 1.1
+  scaleModifier: 1
   scaleCurve:
     serializedVersion: 2
     m_Curve:
@@ -135,16 +154,16 @@ MonoBehaviour:
       outSlope: 5.644819
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.5170263
-      value: 0.8872265
+      time: 0.5127751
+      value: 1.0422285
       inSlope: 0.4499352
       outSlope: 0.4499352
       tangentMode: 0
     - serializedVersion: 2
-      time: 1
-      value: 1.0017362
-      inSlope: 0.23709291
-      outSlope: 0.23709291
+      time: 1.0028341
+      value: 1.1733407
+      inSlope: 0.26754376
+      outSlope: 0.26754376
       tangentMode: 34
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -174,3 +193,28 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   meshRenderer: {fileID: 23131132789881846}
+--- !u!135 &135796301627706364
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968538009044212}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136813357569643554
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968538009044212}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 3.2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

@@ -10,6 +10,7 @@ public class WaveAttack : MonoBehaviour
     public int waveOwner;
     public float lifeTime = 1f;
     public float scaleGrowthFactor = 1.1f;
+    public float scaleModifier = 1f;
 
     public AnimationCurve scaleCurve;
     public AnimationCurve alphaCurve;
@@ -32,7 +33,7 @@ public class WaveAttack : MonoBehaviour
         float percentage = currTime / lifeTime;
 
         Vector3 newScale = new Vector3(1f,1f,1f);
-        newScale *= scaleCurve.Evaluate(percentage);
+        newScale *= scaleCurve.Evaluate(percentage) * scaleModifier;
         transform.localScale = newScale;
 
         Color newColor = material.color;
@@ -47,11 +48,30 @@ public class WaveAttack : MonoBehaviour
         Damageable damageable = collider.gameObject.GetComponent<Damageable>();
         if(damageable != null)
         {
-            Player player = damageable.gameObject.GetComponent<Player>();
-            if(player != null && player.id == waveOwner)
-                return;
-            
-            damageable.GetDamage(damage);
+            if(collider.gameObject.tag == "Obstacle")
+            {
+                Destroy(this.gameObject, 0.1f);
+                damageable.GetDamage(damage);
+                // TODO: per gli ostacoli, non devono scoppiare all'istante ma avere comportamenti particolari: alcuni esplodere, altri cambiare texture, altri "abbassarsi"
+            }
+            else if(collider.gameObject.tag == "Player")
+            {
+                Player player = damageable.gameObject.GetComponent<Player>();
+                if(player != null && player.id == waveOwner)
+                    return;
+                
+                damageable.GetDamage(damage);
+            }
+        }
+
+        WaveAttack waveAttack = collider.gameObject.GetComponent<WaveAttack>();
+        if(waveAttack != null)
+        {
+            if(waveAttack.type == this.type && waveAttack.waveOwner != waveOwner)
+            {
+                Destroy(this.gameObject);
+                Destroy(collider.gameObject);
+            }
         }
     }
 }
