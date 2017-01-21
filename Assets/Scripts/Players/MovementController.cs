@@ -19,6 +19,9 @@ public class MovementController : MonoBehaviour
 
     private Vector3 movementDirection;
 
+    public float cooldown = 1.1f;
+    public float currentCooldown = 0f;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -48,6 +51,14 @@ public class MovementController : MonoBehaviour
 
     private void GetInput()
     {
+        if(currentCooldown > 0)
+        {
+            currentCooldown -= Time.deltaTime;
+            verticalInput = 0;
+            horizontalInput = 0;
+            return;
+        }
+
         verticalInput = rPlayer.GetAxis(InputActions.VerticalMovement);
         horizontalInput = rPlayer.GetAxis(InputActions.HorizontalMovement);
     }
@@ -95,7 +106,7 @@ public class MovementController : MonoBehaviour
         rb.velocity = vel;
     }
 
-    void FixInertia()
+    private void FixInertia()
     {
         if(Mathf.Abs(horizontalInput) < 0.1f)
         {
@@ -108,4 +119,9 @@ public class MovementController : MonoBehaviour
     }
 
     #endregion
+
+    public void StopMovement()
+    {
+        currentCooldown = cooldown;
+    }
 }

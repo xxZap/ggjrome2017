@@ -1,40 +1,34 @@
 fileFormatVersion: 2
-guid: ef292b384ed850245a60485d0b94d908
-timeCreated: 1484981107
+guid: b2cd14fd888bdd24f912f79334f2c6e2
+timeCreated: 1484987380
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: arm_DX
-    100002: arm_SX
-    100004: head
-    100006: //RootNode
-    100008: shoulder_DX
-    100010: shoulder_SX
-    400000: arm_DX
-    400002: arm_SX
-    400004: head
-    400006: //RootNode
-    400008: shoulder_DX
-    400010: shoulder_SX
-    2300000: arm_DX
-    2300002: arm_SX
-    2300004: head
-    2300006: //RootNode
-    2300008: shoulder_DX
-    2300010: shoulder_SX
-    3300000: arm_DX
-    3300002: arm_SX
-    3300004: head
-    3300006: //RootNode
-    3300008: shoulder_DX
-    3300010: shoulder_SX
-    4300000: body
-    4300002: head
-    4300004: shoulder_DX
-    4300006: arm_DX
-    4300008: shoulder_SX
-    4300010: arm_SX
+    100000: //RootNode
+    100002: pPipe5
+    100004: pPipe6
+    100006: pPipe7
+    100008: pPipe8
+    400000: //RootNode
+    400002: pPipe5
+    400004: pPipe6
+    400006: pPipe7
+    400008: pPipe8
+    2300000: pPipe5
+    2300002: pPipe6
+    2300004: pPipe7
+    2300006: pPipe8
+    3300000: pPipe5
+    3300002: pPipe6
+    3300004: pPipe7
+    3300006: pPipe8
+    4300000: pPipe5
+    4300002: pPipe6
+    4300004: pPipe7
+    4300006: pPipe8
+    7400000: Wave_attack
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -55,11 +49,49 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Wave_attack
+      takeName: Take 001
+      firstFrame: 20
+      lastFrame: 55
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pPipe5
+        weight: 1
+      - path: pPipe6
+        weight: 1
+      - path: pPipe7
+        weight: 1
+      - path: pPipe8
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 40
+    globalScale: 30
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -97,7 +129,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

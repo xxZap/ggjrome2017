@@ -9,39 +9,15 @@ public class WaveAttack : MonoBehaviour
     public int damage = 1;
     public int waveOwner;
     public float lifeTime = 1f;
-    public float scaleGrowthFactor = 1.1f;
-    public float scaleModifier = 1f;
+    public GameObject waveParent;
 
-    public AnimationCurve scaleCurve;
-    public AnimationCurve alphaCurve;
-    public MeshRenderer meshRenderer;
-    private Material material;
+    public MeshRenderer[] meshRenderers;
+
+    public Material greenMaterial;
+    public Material blueMaterial;
+    public Material redMaterial;
 
     private float currTime;
-
-    void Start()
-    {
-        material = meshRenderer.material;
-
-        Destroy(this.gameObject, lifeTime);
-        currTime = 0;
-        transform.localScale = new Vector3(0,0,0);
-    }
-
-    void Update()
-    {
-        float percentage = currTime / lifeTime;
-
-        Vector3 newScale = new Vector3(1f,1f,1f);
-        newScale *= scaleCurve.Evaluate(percentage) * scaleModifier;
-        transform.localScale = newScale;
-
-        Color newColor = material.color;
-        newColor.a = alphaCurve.Evaluate(percentage);
-        material.color = newColor;
-
-        currTime  += Time.deltaTime;
-    }
 
     void OnTriggerEnter(Collider collider)
     {
@@ -50,7 +26,7 @@ public class WaveAttack : MonoBehaviour
         {
             if(collider.gameObject.tag == "Obstacle")
             {
-                Destroy(this.gameObject, 0.1f);
+                Destroy(waveParent);
                 damageable.GetDamage(damage);
                 // TODO: per gli ostacoli, non devono scoppiare all'istante ma avere comportamenti particolari: alcuni esplodere, altri cambiare texture, altri "abbassarsi"
             }
@@ -61,6 +37,9 @@ public class WaveAttack : MonoBehaviour
                     return;
                 
                 damageable.GetDamage(damage);
+                Rigidbody rb = player.gameObject.GetComponent<Rigidbody>();
+                Vector3 force = (player.gameObject.transform.position - transform.position).normalized;
+                rb.AddForce(force * 30000f);
             }
         }
 
@@ -69,7 +48,7 @@ public class WaveAttack : MonoBehaviour
         {
             if(waveAttack.type == this.type && waveAttack.waveOwner != waveOwner)
             {
-                Destroy(this.gameObject);
+                Destroy(waveParent);
                 Destroy(collider.gameObject);
             }
         }

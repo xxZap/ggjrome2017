@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
-    public Object waveBlueprefab;
-    public Object waveGreenprefab;
-    public Object waveRedprefab;
+    public Object wavePrefab;
+    public Animator animator;
 
     public float cooldown = 1.1f;
     private float currentCooldown = 0f;
@@ -15,12 +14,14 @@ public class AttackController : MonoBehaviour
     private bool attackGreenInput;
     private bool attackRedInput;
     private Player player;
+    private MovementController movementController;
 
     private Rewired.Player rPlayer;
 
     void Awake()
     {
         player = GetComponent<Player>();
+        movementController = GetComponent<MovementController>();
         rPlayer = Rewired.ReInput.players.GetPlayer(player.id);
     }
 	
@@ -61,26 +62,32 @@ public class AttackController : MonoBehaviour
     private void SpawnWave(WaveType type)
     {
         currentCooldown = cooldown;
+        movementController.StopMovement();
+
+        if(animator != null)
+            animator.SetTrigger("attack");
         
         WaveAttack waveAtt;
         Vector3 pos = new Vector3(transform.position.x, transform.position.y-1f, transform.position.z);
+        GameObject newWave = Instantiate(wavePrefab, pos, transform.rotation) as GameObject;
+        waveAtt = newWave.transform.GetChild(0).GetComponentInChildren<WaveAttack>();
+        waveAtt.waveOwner = player.id;
+        waveAtt.waveParent = newWave;
+        Destroy(newWave, waveAtt.lifeTime);
 
         switch(type)
         {
             case WaveType.Blue:
-                GameObject blue = Instantiate(waveBlueprefab, pos, Quaternion.identity) as GameObject;
-                waveAtt = blue.GetComponent<WaveAttack>();
-                waveAtt.waveOwner = player.id;
+                foreach(MeshRenderer mesh in waveAtt.meshRenderers)
+                    mesh.material = waveAtt.blueMaterial;
                 break;
             case WaveType.Green:
-                GameObject green = Instantiate(waveGreenprefab, pos, Quaternion.identity) as GameObject;
-                waveAtt = green.GetComponent<WaveAttack>();
-                waveAtt.waveOwner = player.id;
+                foreach(MeshRenderer mesh in waveAtt.meshRenderers)
+                    mesh.material = waveAtt.greenMaterial;
                 break;
             case WaveType.Red:
-                GameObject red = Instantiate(waveRedprefab, pos, Quaternion.identity) as GameObject;
-                waveAtt = red.GetComponent<WaveAttack>();
-                waveAtt.waveOwner = player.id;
+                foreach(MeshRenderer mesh in waveAtt.meshRenderers)
+                    mesh.material = waveAtt.redMaterial;
                 break;
         }
     }
