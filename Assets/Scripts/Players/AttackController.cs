@@ -14,14 +14,14 @@ public class AttackController : MonoBehaviour
     private bool attackGreenInput;
     private bool attackRedInput;
     private Player player;
-    private MovementController movementController;
+    //private MovementController movementController;
 
     private Rewired.Player rPlayer;
 
     void Awake()
     {
         player = GetComponent<Player>();
-        movementController = GetComponent<MovementController>();
+        //movementController = GetComponent<MovementController>();
         rPlayer = Rewired.ReInput.players.GetPlayer(player.id);
     }
 	

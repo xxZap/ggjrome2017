@@ -5,7 +5,7 @@ public class Damageable: MonoBehaviour
 {
     public int life = 1;
 
-    public MeshRenderer[] meshRenderer;
+    public MeshRenderer[] meshRenderers;
 
     private bool canReceiveDamage = true;
     private float invincibilityCooldown = 0.7f;
@@ -13,9 +13,9 @@ public class Damageable: MonoBehaviour
 
     void Update()
     {
-        for(int i=0; i<meshRenderer.Length; i++)
+        for(int i=0; i<meshRenderers.Length; i++)
         {
-            meshRenderer[i].material.color = Color.Lerp (meshRenderer[i].material.color, Color.white, Time.deltaTime);
+            meshRenderers[i].material.color = Color.Lerp (meshRenderers[i].material.color, Color.white, Time.deltaTime);
         }
 
         currCooldown -= Time.deltaTime;
@@ -36,9 +36,9 @@ public class Damageable: MonoBehaviour
             life -= damage;
             canReceiveDamage = false;
             currCooldown = invincibilityCooldown;
-            for(int i=0; i<meshRenderer.Length; i++)
+            for(int i=0; i<meshRenderers.Length; i++)
             {
-                meshRenderer[i].material.color = new Color(1,0,0);
+                meshRenderers[i].material.color = new Color(1,0,0);
             }
         }
     }

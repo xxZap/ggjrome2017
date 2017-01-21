@@ -17,8 +17,6 @@ public class WaveAttack : MonoBehaviour
     public Material blueMaterial;
     public Material redMaterial;
 
-    private float currTime;
-
     void OnTriggerEnter(Collider collider)
     {
         Damageable damageable = collider.gameObject.GetComponent<Damageable>();

@@ -8,7 +8,14 @@ public class FollowerBehaviour : MonoBehaviour
     public Transform[] players;
     public float MoveSpeed = 4f;
     private NavMeshAgent pathfinder;
+
     public WaveType type;
+
+    public MeshRenderer[] meshRenderers;
+
+    public Material greenMaterial;
+    public Material blueMaterial;
+    public Material redMaterial;
 
     void Start()
     {
