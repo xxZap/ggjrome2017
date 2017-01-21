@@ -114,14 +114,14 @@ MonoBehaviour:
       editorSettings:
         exportConsts_useParentClass: 0
         exportConsts_parentClassName: RewiredConsts
-        exportConsts_useNamespace: 1
+        exportConsts_useNamespace: 0
         exportConsts_namespace: RewiredConsts
         exportConsts_actions: 1
-        exportConsts_actionsClassName: Action
+        exportConsts_actionsClassName: InputActions
         exportConsts_actionsIncludeActionCategory: 0
-        exportConsts_mapCategories: 1
+        exportConsts_mapCategories: 0
         exportConsts_mapCategoriesClassName: Category
-        exportConsts_layouts: 1
+        exportConsts_layouts: 0
         exportConsts_layoutsClassName: Layout
     players:
     - _id: 9999999
@@ -222,6 +222,24 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 0
+    - _id: 4
+      _name: Fire2
+      _type: 1
+      _descriptiveName: Fire2
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 3
+      _name: Fire1
+      _type: 1
+      _descriptiveName: Fire1
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -231,7 +249,7 @@ MonoBehaviour:
     actionCategoryMap:
       list:
       - categoryId: 0
-        actionIds: 000000000100000002000000
+        actionIds: 0000000001000000020000000300000004000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -342,7 +360,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 3
         _elementType: 1
         _elementIdentifierId: 5
         _axisRange: 0
@@ -364,7 +382,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 4
         _elementType: 1
         _elementIdentifierId: 7
         _axisRange: 0
@@ -544,7 +562,7 @@ MonoBehaviour:
     customControllerMaps: []
     customControllers: []
     playerIdCounter: 5
-    actionIdCounter: 3
+    actionIdCounter: 5
     actionCategoryIdCounter: 1
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 1
