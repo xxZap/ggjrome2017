@@ -341,7 +341,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'P1: press <color=blue>X</color> Start to start the game'
+  m_Text: 'P1: press <color=blue>X</color> to start the game'
 --- !u!222 &915195446
 CanvasRenderer:
   m_ObjectHideFlags: 0

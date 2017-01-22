@@ -62,3 +62,9 @@ MonoBehaviour:
   powerupUnstoppableWaves: {fileID: 8300000, guid: 2a2392b8fc52a9a44b89a3458b7b5c97,
     type: 3}
   menuClick: {fileID: 8300000, guid: ecbac947d99018a4893eac036a12028f, type: 3}
+  theWinnerIs: {fileID: 8300000, guid: 7ca5d5df8385d3541866fd971ebc9385, type: 3}
+  winnerP1: {fileID: 8300000, guid: 67e47e516f9e0f34e9871502cd65542c, type: 3}
+  winnerP2: {fileID: 8300000, guid: 16541fd10b851dc4a940023022629d0d, type: 3}
+  winnerP3: {fileID: 8300000, guid: b38c0193c4a94bd4dbac863d1957ed25, type: 3}
+  winnerP4: {fileID: 8300000, guid: 08253154c43d88c43a084b8d8e7e4dc7, type: 3}
+  pig: {fileID: 8300000, guid: ab4d8ca64bd28304885fce2af99ea9c5, type: 3}
