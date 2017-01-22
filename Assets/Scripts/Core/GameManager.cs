@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         if(finished)
             return;
 
-        if(!pigHasBeenSpawned && timer <= 31)
+        if(!pigHasBeenSpawned && timer <= 30)
         {
             pigHasBeenSpawned = true;
             SpawnPig();
@@ -152,7 +152,18 @@ public class GameManager : MonoBehaviour
     private void SpawnPig()
     {
         GameObject newPig = Instantiate(pigPrefab, pigSpawner.position, Quaternion.identity) as GameObject;
+        StartCoroutine("PlayPig");
     }
+
+    IEnumerator PlayPig()
+    {
+        do
+        {
+            yield return new WaitForSeconds(Random.Range(0f, 3f));
+            sfx.player.PlayPig();
+        } while (true);
+    }
+
 
     private void ShowFinishGame()
     {
@@ -176,26 +187,30 @@ public class GameManager : MonoBehaviour
         winnerView.SetActive(true);
         sfx.player.PlayTheWinnerIs();
         System.Threading.Thread.Sleep(4000);//ms
-        switch (indexPlayer)
-        {
-            case 0:
-                sfx.player.PlayWinnerP1();
-                break;
-            case 1:
-                sfx.player.PlayWinnerP2();
-                break;
-            case 2:
-                sfx.player.PlayWinnerP3();
-                break;
-            case 3:
-                sfx.player.PlayWinnerP4();
-                break;
-        }
 
         if (!draw)
+        {
+            switch (indexPlayer)
+            {
+                case 0:
+                    sfx.player.PlayWinnerP1();
+                    break;
+                case 1:
+                    sfx.player.PlayWinnerP2();
+                    break;
+                case 2:
+                    sfx.player.PlayWinnerP3();
+                    break;
+                case 3:
+                    sfx.player.PlayWinnerP4();
+                    break;
+            }
             winnerLabel.text = "PLAYER " + (indexPlayer + 1).ToString() + ": " + players[indexPlayer].points + "pt";
+        }
         else
+        {
             winnerLabel.text = "DRAW";
+        }
     }
 
     public void GoToMainMenu()

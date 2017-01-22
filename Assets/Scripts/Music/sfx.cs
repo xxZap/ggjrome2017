@@ -26,6 +26,8 @@ public class sfx : MonoBehaviour {
     public AudioClip winnerP3;
     public AudioClip winnerP4;
 
+    public AudioClip pig;
+
     void Awake()
     {
         if (player == null)
@@ -103,6 +105,10 @@ public class sfx : MonoBehaviour {
     public void PlayWinnerP4()
     {
         source.PlayOneShot(winnerP4);
+    }
+    public void PlayPig()
+    {
+        source.PlayOneShot(pig);
     }
 
 }
