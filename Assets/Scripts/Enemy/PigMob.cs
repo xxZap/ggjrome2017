@@ -79,7 +79,7 @@ public class PigMob : MonoBehaviour
         int maxPoint = GameManager.Instance.players[prevTargetID].points;
         for(int i=0; i<GameManager.Instance.players.Length; i++)
         {
-            if(GameManager.Instance.players[i].points > maxPoint)
+            if(GameManager.Instance.players[i] != null && GameManager.Instance.players[i].points > maxPoint)
             {
                 indexPlayer = i;
                 maxPoint = GameManager.Instance.players[i].points;
