@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
     public Player[] players;
     public Object[] playerPrefabs;
 
+    public Transform pigSpawner;
+    public Object pigPrefab;
+    private bool pigHasBeenSpawned;
+
     public GameObject winnerView;
     public Text winnerLabel;
 
@@ -28,6 +32,12 @@ public class GameManager : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
+            winnerView.SetActive(false);
+            
+            for(int i=0; i<PLAYERS_TO_SPAWN.Length; i++)
+            {
+                if(PLAYERS_TO_SPAWN[i]) SpawnPlayer(i);
+            }
         }
         else
         {
@@ -37,13 +47,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        winnerView.SetActive(false);
-        
-        for(int i=0; i<PLAYERS_TO_SPAWN.Length; i++)
-        {
-            if(PLAYERS_TO_SPAWN[i]) SpawnPlayer(i);
-        }
-
         timer = 120f;
         timeText.text = GetFormattedTime((int)timer);
     }
@@ -52,6 +55,12 @@ public class GameManager : MonoBehaviour
     {
         if(finished)
             return;
+
+        if(!pigHasBeenSpawned && timer <= 31)
+        {
+            pigHasBeenSpawned = true;
+            SpawnPig();
+        }
         
         if(timer <= 0)
         {
@@ -89,8 +98,16 @@ public class GameManager : MonoBehaviour
         players[id].gameObject.SetActive(true);
     }
 
+    public void PigKillPlayer(int killed)
+    {
+        players[killed].gameObject.SetActive(false);
+        players[killed].points = 0;
+        StartCoroutine(DelayBeforeSpawn(killed));
+    }
+
     public void PlayerKilledPlayer(int killer, int killed)
     {
+        AddPointToPlayer(killer);
         AddPointToPlayer(killer);
         //RemovePointFromPlayer(killed);
         players[killed].gameObject.SetActive(false);
@@ -113,12 +130,17 @@ public class GameManager : MonoBehaviour
 
         string timestring = "0" + ((minutes > 0) ? minutes : 0) + ":" + ((seconds > 9) ? seconds.ToString() : ("0" + seconds.ToString()));
 
-        if(minutes == 0 && seconds < 11)
+        if(minutes == 0 && seconds <= 30)
         {
             timestring = redColorTextPrefix + timestring + redColorTextSuffix;
         }
 
         return timestring;
+    }
+
+    private void SpawnPig()
+    {
+        GameObject newPig = Instantiate(pigPrefab, pigSpawner.position, Quaternion.identity) as GameObject;
     }
 
     private void ShowFinishGame()
