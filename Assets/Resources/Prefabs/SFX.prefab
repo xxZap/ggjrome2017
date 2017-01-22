@@ -59,6 +59,6 @@ MonoBehaviour:
   powerupSpawn: {fileID: 8300000, guid: 273af7081f912db459efb71aa011d3c5, type: 3}
   powerupBlackout: {fileID: 8300000, guid: 5465eb1016913264e854e28df8c3be14, type: 3}
   powerupDoubleSpeed: {fileID: 8300000, guid: 3c36c44de2abf5a4782498a69e550733, type: 3}
-  powerupUnstoppableWaves: {fileID: 8300000, guid: 9202b3ebe2d482548ab31f7dabf4a0cb,
+  powerupUnstoppableWaves: {fileID: 8300000, guid: 2a2392b8fc52a9a44b89a3458b7b5c97,
     type: 3}
   menuClick: {fileID: 8300000, guid: ecbac947d99018a4893eac036a12028f, type: 3}
