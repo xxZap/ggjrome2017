@@ -35,6 +35,11 @@ public class AttackController : MonoBehaviour
 
     private void GetInput()
     {
+        if(GameManager.Instance.finished && rPlayer.GetButtonDown(InputActions.Fire0))
+        {
+            GameManager.Instance.GoToMainMenu();
+        }
+        
         if(currentCooldown > 0)
         {
             currentCooldown -= Time.deltaTime;

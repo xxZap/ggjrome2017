@@ -9,6 +9,12 @@ public class Player : MonoBehaviour
 
     public TextMesh meshPoints;
 
+    void OnDisable()
+    {
+        if(points > 0)
+            points--;
+    }
+
     void Update()
     {
         meshPoints.text = points.ToString();

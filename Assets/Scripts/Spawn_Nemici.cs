@@ -67,7 +67,7 @@ public class Spawn_Nemici : MonoBehaviour {
 
     Vector3 GetRandomSpawnLocation()
     {
-        int x = Random.Range(-7, 7);
+        int x = Random.Range(-6, 6);
         int z = Random.Range(-5, 5);
         return new Vector3(x, 1, z);
     }

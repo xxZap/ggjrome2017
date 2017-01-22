@@ -26,6 +26,7 @@ public class WaveAttack : MonoBehaviour
             {
                 Destroy(waveParent, 0.2f);
                 damageable.GetDamage(damage);
+                Camera.main.GetComponent<CameraShake>().Shake();
             }
             else if (collider.gameObject.tag == "Player")
             {
@@ -34,6 +35,7 @@ public class WaveAttack : MonoBehaviour
                     return;
 
                 damageable.GetDamage(damage);
+                Camera.main.GetComponent<CameraShake>().Shake();
                 GameManager.Instance.PlayerKilledPlayer(waveOwner, player.id);
                 Rigidbody rb = player.gameObject.GetComponent<Rigidbody>();
                 Vector3 force = (player.gameObject.transform.position - transform.position).normalized;
@@ -47,6 +49,7 @@ public class WaveAttack : MonoBehaviour
                     return;
 
                 damageable.GetDamage(damage);
+                Camera.main.GetComponent<CameraShake>().Shake();
             }
 
         }
@@ -58,6 +61,7 @@ public class WaveAttack : MonoBehaviour
             {
                 Destroy(waveParent);
                 Destroy(collider.gameObject);
+                Camera.main.GetComponent<CameraShake>().Shake();
             }
         }
     }
