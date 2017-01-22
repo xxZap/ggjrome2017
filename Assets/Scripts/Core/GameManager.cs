@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public Player[] players;
     public Object[] playerPrefabs;
 
+    public GameObject winnerView;
+    public Text winnerLabel;
+
     public Text timeText;
     public float timer;
 
@@ -34,6 +37,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        winnerView.SetActive(false);
+        
         for(int i=0; i<PLAYERS_TO_SPAWN.Length; i++)
         {
             if(PLAYERS_TO_SPAWN[i]) SpawnPlayer(i);
@@ -119,6 +124,18 @@ public class GameManager : MonoBehaviour
     private void ShowFinishGame()
     {
         Time.timeScale = 0;
+        int indexPlayer = 0;
+        int maxPoint = players[0].points;
+        for(int i=0; i<players.Length; i++)
+        {
+            if(players[i].points > maxPoint)
+            {
+                indexPlayer = i;
+                maxPoint = players[i].points;
+            }
+        }
+        winnerLabel.text = "PLAYER " + indexPlayer + " - " + players[indexPlayer].points + "pt";
+        winnerView.SetActive(true);
     }
 
     public void GoToMainMenu()
