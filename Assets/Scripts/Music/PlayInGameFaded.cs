@@ -9,7 +9,7 @@ public class PlayInGameFaded : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //StartCoroutine("FadeIn");
+        StartCoroutine("FadeIn");
     }
 
     IEnumerator FadeIn()
@@ -21,7 +21,7 @@ public class PlayInGameFaded : MonoBehaviour {
         {
             yield return new WaitForSeconds(0.1f);
             _as.volume += 0.1f * 1f / fadeTime;
-        } while (_as.volume < 0.3);
+        } while (_as.volume < 0.2);
     }
 
 }
