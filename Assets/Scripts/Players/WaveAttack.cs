@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum WaveType { Blue, Green, Red }
+public enum WaveType { Blue, Green, Yellow }
 
 public class WaveAttack : MonoBehaviour
 {

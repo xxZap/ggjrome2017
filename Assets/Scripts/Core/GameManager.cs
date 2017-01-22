@@ -162,6 +162,7 @@ public class GameManager : MonoBehaviour
         bool draw = true;
         for(int i=0; i<players.Length; i++)
         {
+            if (players[i] == null) continue;
             if (players[i].points > maxPoint)
             {
                 draw = false;
@@ -192,7 +193,7 @@ public class GameManager : MonoBehaviour
         }
 
         if (!draw)
-            winnerLabel.text = "PLAYER " + indexPlayer + " - " + players[indexPlayer].points + "pt";
+            winnerLabel.text = "PLAYER " + (indexPlayer + 1).ToString() + ": " + players[indexPlayer].points + "pt";
         else
             winnerLabel.text = "DRAW";
     }

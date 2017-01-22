@@ -50,7 +50,7 @@ public class Spawn_Nemici : MonoBehaviour {
                             mats[i] = untypedEnemy.greenMaterial;
                         }
                         break;
-                    case WaveType.Red:
+                    case WaveType.Yellow:
                         for(int i=0; i<mats.Length; i++)
                         {
                             mats[i] = untypedEnemy.redMaterial;

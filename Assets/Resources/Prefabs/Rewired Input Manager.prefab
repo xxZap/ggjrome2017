@@ -231,6 +231,15 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 0
+    - _id: 5
+      _name: Fire3
+      _type: 1
+      _descriptiveName: Fire3
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
     - _id: 3
       _name: Fire1
       _type: 1
@@ -249,7 +258,7 @@ MonoBehaviour:
     actionCategoryMap:
       list:
       - categoryId: 0
-        actionIds: 0000000001000000020000000300000004000000
+        actionIds: 000000000100000002000000030000000400000005000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -393,7 +402,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 5
         _elementType: 1
         _elementIdentifierId: 8
         _axisRange: 0
@@ -562,7 +571,7 @@ MonoBehaviour:
     customControllerMaps: []
     customControllers: []
     playerIdCounter: 5
-    actionIdCounter: 5
+    actionIdCounter: 6
     actionCategoryIdCounter: 1
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 1

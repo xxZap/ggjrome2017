@@ -30,7 +30,7 @@ public class PlayersSelection : MonoBehaviour
 
         if(menu.players[0] && id==0 && rPlayer.GetButtonDown(InputActions.Fire2))
         {
-            menu.StartBattle();
+            menu.StartTutorial();
         }
     }
 	

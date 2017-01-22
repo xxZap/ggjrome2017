@@ -12,7 +12,7 @@ public class AttackController : MonoBehaviour
     
     private bool attackBlueInput;
     private bool attackGreenInput;
-    private bool attackRedInput;
+    private bool attackYellowInput;
     private Player player;
     //private MovementController movementController;
 
@@ -44,14 +44,14 @@ public class AttackController : MonoBehaviour
         {
             currentCooldown -= Time.deltaTime;
             attackBlueInput  = false;
-            attackRedInput   = false;
+            attackYellowInput   = false;
             attackGreenInput = false;
             return;
         }
         
-        attackBlueInput  = rPlayer.GetButtonDown(InputActions.Fire2);
-        attackRedInput   = rPlayer.GetButtonDown(InputActions.Fire1);
-        attackGreenInput = rPlayer.GetButtonDown(InputActions.Fire0);
+        attackBlueInput   = rPlayer.GetButtonDown(InputActions.Fire2);
+        attackYellowInput = rPlayer.GetButtonDown(InputActions.Fire3);
+        attackGreenInput  = rPlayer.GetButtonDown(InputActions.Fire0);
     }
 
     private void PerformAttack()
@@ -63,8 +63,8 @@ public class AttackController : MonoBehaviour
             SpawnWave(WaveType.Blue);
         if(attackGreenInput)
             SpawnWave(WaveType.Green);
-        if(attackRedInput)
-            SpawnWave(WaveType.Red);
+        if(attackYellowInput)
+            SpawnWave(WaveType.Yellow);
     }
 
     private void SpawnWave(WaveType type)
@@ -99,7 +99,7 @@ public class AttackController : MonoBehaviour
                 foreach(MeshRenderer mesh in waveAtt.meshRenderers)
                     mesh.material = waveAtt.greenMaterial;
                 break;
-            case WaveType.Red:
+            case WaveType.Yellow:
                 foreach(MeshRenderer mesh in waveAtt.meshRenderers)
                     mesh.material = waveAtt.redMaterial;
                 break;
