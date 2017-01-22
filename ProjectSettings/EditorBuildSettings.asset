@@ -10,4 +10,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChoosePlayers.unity
   - enabled: 1
+    path: Assets/Scenes/TutorialScreen.unity
+  - enabled: 1
     path: Assets/Scenes/AlessioSceneTest.unity

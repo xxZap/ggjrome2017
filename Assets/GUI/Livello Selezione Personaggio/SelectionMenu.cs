@@ -45,11 +45,11 @@ public class SelectionMenu : MonoBehaviour
         }
     }
 
-    public void StartBattle()
+    public void StartTutorial()
     {
         GameManager.PLAYERS_TO_SPAWN = players;
         
-        SceneManager.LoadScene("AlessioSceneTest");
+        SceneManager.LoadScene("TutorialScreen");
     }
 
 
