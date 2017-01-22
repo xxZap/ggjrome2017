@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
         });
         CreditsButton.onClick.AddListener(() => {
             sfx.player.PlayMenuClick();
-            UnityEngine.SceneManagement.SceneManager.LoadScene("CreditsMenu");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Credits");
         });
         ExitButton.onClick.AddListener(() => {
             sfx.player.PlayMenuClick();
