@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 41fb25fa46d9c9b419c817d65c5760c0
+timeCreated: 1485086152
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - playerRespawn: {fileID: 8300000, guid: ec89b8b361e58b646a1e839c821f626d, type: 3}
+  - wave: {fileID: 8300000, guid: 50a96e2c07eb6334cbee69c80c137142, type: 3}
+  - boh: {fileID: 8300000, guid: e977e35dbaf179943932dc94b5199695, type: 3}
+  - destroyObstacle: {fileID: 8300000, guid: a8f23b1cdf5dd694e8f31b0a4aff2c7f, type: 3}
+  - npcDeath: {fileID: 8300000, guid: 8e404e6f0046b4e4b925a097526bca57, type: 3}
+  - powerupSpawn: {fileID: 8300000, guid: 273af7081f912db459efb71aa011d3c5, type: 3}
+  - powerupBlackout: {fileID: 8300000, guid: 5465eb1016913264e854e28df8c3be14, type: 3}
+  - powerupDoubleSpeed: {fileID: 8300000, guid: 3c36c44de2abf5a4782498a69e550733,
+      type: 3}
+  - powerupUnstoppableWaves: {fileID: 8300000, guid: 9202b3ebe2d482548ab31f7dabf4a0cb,
+      type: 3}
+  - menuClick: {fileID: 8300000, guid: ecbac947d99018a4893eac036a12028f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

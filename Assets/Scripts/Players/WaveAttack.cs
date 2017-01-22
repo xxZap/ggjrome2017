@@ -26,7 +26,7 @@ public class WaveAttack : MonoBehaviour
             {
                 if(GameManager.Instance.unstopablePlayersWave[waveOwner] == false)
                     Destroy(waveParent, 0.2f);
-                
+                sfx.player.PlayDestroyObstacle();
                 damageable.GetDamage(damage);
                 Camera.main.GetComponent<CameraShake>().Shake();
             }
@@ -36,6 +36,7 @@ public class WaveAttack : MonoBehaviour
                 if (player == null || player.id == waveOwner)
                     return;
 
+                sfx.player.PlayDestroyObstacle();
                 damageable.GetDamage(damage);
                 Camera.main.GetComponent<CameraShake>().Shake();
                 GameManager.Instance.PlayerKilledPlayer(waveOwner, player.id);
@@ -50,12 +51,13 @@ public class WaveAttack : MonoBehaviour
                 if (enemy == null || enemy.type != this.type)
                     return;
 
+                sfx.player.PlayNpcDeath();
                 damageable.GetDamage(damage);
                 Camera.main.GetComponent<CameraShake>().Shake();
             }
 
         }
-
+        
         WaveAttack waveAttack = collider.gameObject.GetComponent<WaveAttack>();
         if(waveAttack != null)
         {

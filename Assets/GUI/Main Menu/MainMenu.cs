@@ -11,8 +11,17 @@ public class MainMenu : MonoBehaviour
 
     void Start ()
     {
-        PlayButton.onClick.AddListener(() => { UnityEngine.SceneManagement.SceneManager.LoadScene("ChoosePlayers"); });
-        CreditsButton.onClick.AddListener(() => { UnityEngine.SceneManagement.SceneManager.LoadScene("CreditsMenu"); });
-        ExitButton.onClick.AddListener(() => { Application.Quit(); });
+        PlayButton.onClick.AddListener(() => {
+            sfx.player.PlayMenuClick();
+            UnityEngine.SceneManagement.SceneManager.LoadScene("ChoosePlayers");
+        });
+        CreditsButton.onClick.AddListener(() => {
+            sfx.player.PlayMenuClick();
+            UnityEngine.SceneManagement.SceneManager.LoadScene("CreditsMenu");
+        });
+        ExitButton.onClick.AddListener(() => {
+            sfx.player.PlayMenuClick();
+            Application.Quit();
+        });
 	}
 }

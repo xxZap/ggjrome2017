@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1457071478536796}
+  m_IsPrefabParent: 1
+--- !u!1 &1457071478536796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4847142895463220}
+  - component: {fileID: 114450225786837356}
+  m_Layer: 0
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4847142895463220
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1457071478536796}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114450225786837356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1457071478536796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fb25fa46d9c9b419c817d65c5760c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRespawn: {fileID: 8300000, guid: ec89b8b361e58b646a1e839c821f626d, type: 3}
+  wave: {fileID: 8300000, guid: 50a96e2c07eb6334cbee69c80c137142, type: 3}
+  boh: {fileID: 8300000, guid: e977e35dbaf179943932dc94b5199695, type: 3}
+  destroyObstacle: {fileID: 8300000, guid: a8f23b1cdf5dd694e8f31b0a4aff2c7f, type: 3}
+  npcDeath: {fileID: 8300000, guid: 8e404e6f0046b4e4b925a097526bca57, type: 3}
+  powerupSpawn: {fileID: 8300000, guid: 273af7081f912db459efb71aa011d3c5, type: 3}
+  powerupBlackout: {fileID: 8300000, guid: 5465eb1016913264e854e28df8c3be14, type: 3}
+  powerupDoubleSpeed: {fileID: 8300000, guid: 3c36c44de2abf5a4782498a69e550733, type: 3}
+  powerupUnstoppableWaves: {fileID: 8300000, guid: 9202b3ebe2d482548ab31f7dabf4a0cb,
+    type: 3}
+  menuClick: {fileID: 8300000, guid: ecbac947d99018a4893eac036a12028f, type: 3}

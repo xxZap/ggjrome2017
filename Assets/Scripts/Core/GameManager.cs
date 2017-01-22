@@ -109,6 +109,7 @@ public class GameManager : MonoBehaviour
 
     public void PigKillPlayer(int killed)
     {
+        sfx.player.PlayDestroyObstacle();
         players[killed].gameObject.SetActive(false);
         players[killed].points = 0;
         StartCoroutine(DelayBeforeSpawn(killed));
@@ -127,6 +128,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         SpawnPlayer(playerId);
+        sfx.player.PlayRespawn();
     }
 
     private string GetFormattedTime(int totalSeconds)

@@ -1,0 +1,9 @@
+diff a/Assets/Scripts/Players/WaveAttack.cs b/Assets/Scripts/Players/WaveAttack.cs	(rejected hunks)
+@@ -24,6 +24,7 @@
+          {
+              if (collider.gameObject.tag == "Obstacle")
+              {
+++<<<<<<< Updated upstream
+ +                if(GameManager.Instance.unstopablePlayersWave[waveOwner] == false)
+ +                    Destroy(waveParent, 0.2f);
+ +                

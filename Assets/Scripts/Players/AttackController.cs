@@ -79,9 +79,14 @@ public class AttackController : MonoBehaviour
         Vector3 pos = new Vector3(transform.position.x, transform.position.y-1f, transform.position.z);
         GameObject newWave = Instantiate(wavePrefab, pos, transform.rotation) as GameObject;
         waveAtt = newWave.transform.GetChild(0).GetComponentInChildren<WaveAttack>();
+        if (GameManager.Instance.unstopablePlayersWave[player.id])
+        {
+            newWave.transform.localScale = new Vector3(1.7f, 1.7f, 1.7f);
+        }
         waveAtt.waveOwner = player.id;
         waveAtt.waveParent = newWave;
         waveAtt.type = type;
+        sfx.player.PlayWave();
         Destroy(newWave, waveAtt.lifeTime);
 
         switch(type)

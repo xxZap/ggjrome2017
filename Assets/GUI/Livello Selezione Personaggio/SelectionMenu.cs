@@ -28,6 +28,7 @@ public class SelectionMenu : MonoBehaviour
 
         if(id == 0)
         {
+            sfx.player.PlayMenuClick();
             startIndications.gameObject.SetActive(true);
         }
     }
@@ -39,6 +40,7 @@ public class SelectionMenu : MonoBehaviour
 
         if(id == 0)
         {
+            sfx.player.PlayMenuClick();
             startIndications.gameObject.SetActive(false);
         }
     }
