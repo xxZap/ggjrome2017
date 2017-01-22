@@ -159,18 +159,22 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         int indexPlayer = 0;
         int maxPoint = players[0].points;
+        bool draw = true;
         for(int i=0; i<players.Length; i++)
         {
-            if(players[i].points > maxPoint)
+            if (players[i].points > maxPoint)
             {
+                draw = false;
                 indexPlayer = i;
                 maxPoint = players[i].points;
             }
+            else
+            { if (players[i].points == maxPoint) draw = true; }
         }
-        winnerLabel.text = "PLAYER " + indexPlayer + " - " + players[indexPlayer].points + "pt";
+        winnerLabel.text = "";
         winnerView.SetActive(true);
         sfx.player.PlayTheWinnerIs();
-        new WaitForSeconds(4f);
+        System.Threading.Thread.Sleep(4000);//ms
         switch (indexPlayer)
         {
             case 1:
@@ -186,6 +190,11 @@ public class GameManager : MonoBehaviour
                 sfx.player.PlayWinnerP4();
                 break;
         }
+
+        if (!draw)
+            winnerLabel.text = "PLAYER " + indexPlayer + " - " + players[indexPlayer].points + "pt";
+        else
+            winnerLabel.text = "DRAW";
     }
 
     public void GoToMainMenu()
