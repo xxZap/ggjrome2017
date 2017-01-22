@@ -169,6 +169,23 @@ public class GameManager : MonoBehaviour
         }
         winnerLabel.text = "PLAYER " + indexPlayer + " - " + players[indexPlayer].points + "pt";
         winnerView.SetActive(true);
+        sfx.player.PlayTheWinnerIs();
+        new WaitForSeconds(4f);
+        switch (indexPlayer)
+        {
+            case 1:
+                sfx.player.PlayWinnerP1();
+                break;
+            case 2:
+                sfx.player.PlayWinnerP2();
+                break;
+            case 3:
+                sfx.player.PlayWinnerP3();
+                break;
+            case 4:
+                sfx.player.PlayWinnerP4();
+                break;
+        }
     }
 
     public void GoToMainMenu()

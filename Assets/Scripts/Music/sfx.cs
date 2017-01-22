@@ -20,6 +20,12 @@ public class sfx : MonoBehaviour {
 
     public AudioClip menuClick;
 
+    public AudioClip theWinnerIs;
+    public AudioClip winnerP1;
+    public AudioClip winnerP2;
+    public AudioClip winnerP3;
+    public AudioClip winnerP4;
+
     void Awake()
     {
         if (player == null)
@@ -76,6 +82,27 @@ public class sfx : MonoBehaviour {
     public void PlayMenuClick()
     {
         source.PlayOneShot(menuClick);
+    }
+
+    public void PlayTheWinnerIs()
+    {
+        source.PlayOneShot(theWinnerIs);
+    }
+    public void PlayWinnerP1()
+    {
+        source.PlayOneShot(winnerP1);
+    }
+    public void PlayWinnerP2()
+    {
+        source.PlayOneShot(winnerP2);
+    }
+    public void PlayWinnerP3()
+    {
+        source.PlayOneShot(winnerP3);
+    }
+    public void PlayWinnerP4()
+    {
+        source.PlayOneShot(winnerP4);
     }
 
 }
