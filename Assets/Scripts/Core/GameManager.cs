@@ -161,13 +161,13 @@ public class GameManager : MonoBehaviour
         int maxPoint = players[0].points;
         for(int i=0; i<players.Length; i++)
         {
-            if(players[i].points > maxPoint)
+            if(players[i] != null && players[i].points > maxPoint)
             {
                 indexPlayer = i;
                 maxPoint = players[i].points;
             }
         }
-        winnerLabel.text = "PLAYER " + indexPlayer + " - " + players[indexPlayer].points + "pt";
+        winnerLabel.text = "PLAYER " + (indexPlayer + 1).ToString() + ": " + players[indexPlayer].points + "pt";
         winnerView.SetActive(true);
     }
 
