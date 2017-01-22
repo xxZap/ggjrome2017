@@ -40,9 +40,10 @@ public class PowerUpEffect : MonoBehaviour
 
     void StartStopWaveAttack()
     {
-        foreach(Player player in GameManager.Instance.players)
+        for(int i=0; i<GameManager.Instance.players.Length; i++)
         {
-            player.powerupLights.SetActive(true);
+            if(GameManager.Instance.players[i] != null)
+                GameManager.Instance.players[i].powerupLights.SetActive(true);
         }
         GameManager.Instance.playersCanAttack = false;
     }
@@ -60,9 +61,10 @@ public class PowerUpEffect : MonoBehaviour
                 GameManager.Instance.unstopablePlayersWave[playerOwner.id] = false;
                 break;
             case PowerUpType.StopWaveAttacks:
-                foreach(Player player in GameManager.Instance.players)
+                for(int i=0; i<GameManager.Instance.players.Length; i++)
                 {
-                    player.powerupLights.SetActive(false);
+                    if(GameManager.Instance.players[i] != null)
+                        GameManager.Instance.players[i].powerupLights.SetActive(false);
                 }
 
                 GameManager.Instance.playersCanAttack = true;
