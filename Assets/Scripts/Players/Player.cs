@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 
     public TextMesh meshPoints;
 
+    public GameObject powerupLights;
+
     void OnDisable()
     {
         if(points > 0)

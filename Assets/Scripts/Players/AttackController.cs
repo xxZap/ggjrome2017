@@ -56,6 +56,9 @@ public class AttackController : MonoBehaviour
 
     private void PerformAttack()
     {
+        if(!GameManager.Instance.playersCanAttack)
+            return;
+        
         if(attackBlueInput)
             SpawnWave(WaveType.Blue);
         if(attackGreenInput)

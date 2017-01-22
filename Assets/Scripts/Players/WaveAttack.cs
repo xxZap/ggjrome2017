@@ -24,7 +24,9 @@ public class WaveAttack : MonoBehaviour
         {
             if (collider.gameObject.tag == "Obstacle")
             {
-                Destroy(waveParent, 0.2f);
+                if(GameManager.Instance.unstopablePlayersWave[waveOwner] == false)
+                    Destroy(waveParent, 0.2f);
+                
                 damageable.GetDamage(damage);
                 Camera.main.GetComponent<CameraShake>().Shake();
             }
@@ -59,7 +61,9 @@ public class WaveAttack : MonoBehaviour
         {
             if(waveAttack.type == this.type && waveAttack.waveOwner != waveOwner)
             {
-                Destroy(waveParent);
+                if(GameManager.Instance.unstopablePlayersWave[waveOwner] == false)
+                    Destroy(waveParent);
+                
                 Destroy(collider.gameObject);
                 Camera.main.GetComponent<CameraShake>().Shake();
             }

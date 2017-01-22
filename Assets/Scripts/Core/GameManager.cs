@@ -27,6 +27,15 @@ public class GameManager : MonoBehaviour
 
     public bool finished;
 
+    // powerups
+    public bool playersCanAttack = true;
+    public bool[] unstopablePlayersWave = new bool[] {false, false, false, false};
+    public GameObject uiPowerUpVelocity;
+    public GameObject uiPowerUpUnstopable;
+    public GameObject uiPowerUpStop;
+
+
+
     void Awake()
     {
         if(Instance == null)
@@ -164,6 +173,22 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ShowPowerUp(PowerUpType type)
+    {
+        switch(type)
+        {
+            case PowerUpType.IncreaseVelocity:
+                uiPowerUpVelocity.GetComponent<Animator>().SetTrigger("show");
+                break;
+            case PowerUpType.StopWaveAttacks:
+                uiPowerUpStop.GetComponent<Animator>().SetTrigger("show");
+                break;
+            case PowerUpType.UnstopableWaves:
+                uiPowerUpUnstopable.GetComponent<Animator>().SetTrigger("show");
+                break;
+        }
     }
 
 }
