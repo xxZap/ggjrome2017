@@ -159,8 +159,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         int indexPlayer = 0;
         int maxPoint = players[0].points;
-        bool draw = true;
-        for(int i=0; i<players.Length; i++)
+        bool draw = false;
+        for(int i=1; i<players.Length; i++)
         {
             if (players[i] == null) continue;
             if (players[i].points > maxPoint)
@@ -178,16 +178,16 @@ public class GameManager : MonoBehaviour
         System.Threading.Thread.Sleep(4000);//ms
         switch (indexPlayer)
         {
-            case 1:
+            case 0:
                 sfx.player.PlayWinnerP1();
                 break;
-            case 2:
+            case 1:
                 sfx.player.PlayWinnerP2();
                 break;
-            case 3:
+            case 2:
                 sfx.player.PlayWinnerP3();
                 break;
-            case 4:
+            case 3:
                 sfx.player.PlayWinnerP4();
                 break;
         }
