@@ -39,7 +39,7 @@ public class CameraShake : MonoBehaviour
 
     public void Shake()
     {
-        SaveOriginData();
+        //SaveOriginData();
 
         this.transform.rotation     = this.originRotation;
         this.transform.position     = this.originPosition;
