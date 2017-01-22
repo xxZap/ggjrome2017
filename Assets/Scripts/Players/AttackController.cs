@@ -78,16 +78,11 @@ public class AttackController : MonoBehaviour
         WaveAttack waveAtt;
         Vector3 pos = new Vector3(transform.position.x, transform.position.y-1f, transform.position.z);
         GameObject newWave = Instantiate(wavePrefab, pos, transform.rotation) as GameObject;
-        if(GameManager.Instance.unstopablePlayersWave[player.id])
-        {
-            newWave.transform.localScale = new Vector3(1.7f, 1.7f, 1.7f);
-        }
-
-        waveAtt = newWave.transform.GetChild(0).GetComponentInChildren<WaveAttack>();
         if (GameManager.Instance.unstopablePlayersWave[player.id])
         {
             newWave.transform.localScale = new Vector3(1.7f, 1.7f, 1.7f);
         }
+        waveAtt = newWave.transform.GetChild(0).GetComponentInChildren<WaveAttack>();
         waveAtt.waveOwner = player.id;
         waveAtt.waveParent = newWave;
         waveAtt.type = type;
