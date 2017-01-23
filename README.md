@@ -1,4 +1,5 @@
 # ggjrome2017 - Un Sacc De Bot
+Unity3D project for the Global Game Jam of Rome 2017
 
 ## Game home
 * [Info and Playable Demo](http://globalgamejam.org/2017/games/un-sacc-de-bot-lot-bots-and-kicks) - The home page of the game
